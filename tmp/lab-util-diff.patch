@@ -1,0 +1,543 @@
+diff --git a/.dir-locals.el b/.dir-locals.el
+old mode 100644
+new mode 100755
+diff --git a/.editorconfig b/.editorconfig
+old mode 100644
+new mode 100755
+diff --git a/.gdbinit.tmpl-riscv b/.gdbinit.tmpl-riscv
+old mode 100644
+new mode 100755
+diff --git a/.gitignore b/.gitignore
+old mode 100644
+new mode 100755
+diff --git a/LICENSE b/LICENSE
+old mode 100644
+new mode 100755
+diff --git a/Makefile b/Makefile
+old mode 100644
+new mode 100755
+index 0fbaf7c..145a3ab
+--- a/Makefile
++++ b/Makefile
+@@ -149,7 +149,12 @@ UPROGS=\
+ 	$U/_grind\
+ 	$U/_wc\
+ 	$U/_zombie\
+-
++	$U/_copy\
++	$U/_sleep\
++	$U/_pingpong\
++	$U/_primes\
++	$U/_find\
++	$U/_xargs\
+ 
+ ifeq ($(LAB),syscall)
+ UPROGS += \
+diff --git a/README b/README
+old mode 100644
+new mode 100755
+diff --git a/conf/lab.mk b/conf/lab.mk
+old mode 100644
+new mode 100755
+diff --git a/grade-lab-util b/grade-lab-util
+index 10a2ba4..9032ea6 100755
+--- a/grade-lab-util
++++ b/grade-lab-util
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ import re
+ from gradelib import *
+diff --git a/gradelib.py b/gradelib.py
+old mode 100644
+new mode 100755
+diff --git a/kernel/bio.c b/kernel/bio.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/buf.h b/kernel/buf.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/console.c b/kernel/console.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/date.h b/kernel/date.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/defs.h b/kernel/defs.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/elf.h b/kernel/elf.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/entry.S b/kernel/entry.S
+old mode 100644
+new mode 100755
+diff --git a/kernel/exec.c b/kernel/exec.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/fcntl.h b/kernel/fcntl.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/file.c b/kernel/file.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/file.h b/kernel/file.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/fs.c b/kernel/fs.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/fs.h b/kernel/fs.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/kalloc.c b/kernel/kalloc.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/kernel.ld b/kernel/kernel.ld
+old mode 100644
+new mode 100755
+diff --git a/kernel/kernelvec.S b/kernel/kernelvec.S
+old mode 100644
+new mode 100755
+diff --git a/kernel/log.c b/kernel/log.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/main.c b/kernel/main.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/memlayout.h b/kernel/memlayout.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/param.h b/kernel/param.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/pipe.c b/kernel/pipe.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/plic.c b/kernel/plic.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/printf.c b/kernel/printf.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/proc.c b/kernel/proc.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/proc.h b/kernel/proc.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/ramdisk.c b/kernel/ramdisk.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/riscv.h b/kernel/riscv.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/sleeplock.c b/kernel/sleeplock.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/sleeplock.h b/kernel/sleeplock.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/spinlock.c b/kernel/spinlock.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/spinlock.h b/kernel/spinlock.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/start.c b/kernel/start.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/stat.h b/kernel/stat.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/string.c b/kernel/string.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/swtch.S b/kernel/swtch.S
+old mode 100644
+new mode 100755
+diff --git a/kernel/syscall.c b/kernel/syscall.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/syscall.h b/kernel/syscall.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/sysfile.c b/kernel/sysfile.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/sysproc.c b/kernel/sysproc.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/trampoline.S b/kernel/trampoline.S
+old mode 100644
+new mode 100755
+diff --git a/kernel/trap.c b/kernel/trap.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/types.h b/kernel/types.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/uart.c b/kernel/uart.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/virtio.h b/kernel/virtio.h
+old mode 100644
+new mode 100755
+diff --git a/kernel/virtio_disk.c b/kernel/virtio_disk.c
+old mode 100644
+new mode 100755
+diff --git a/kernel/vm.c b/kernel/vm.c
+old mode 100644
+new mode 100755
+diff --git a/mkfs/mkfs.c b/mkfs/mkfs.c
+old mode 100644
+new mode 100755
+diff --git a/time.txt b/time.txt
+new file mode 100644
+index 0000000..3c03207
+--- /dev/null
++++ b/time.txt
+@@ -0,0 +1 @@
++18
+diff --git a/user/cat.c b/user/cat.c
+old mode 100644
+new mode 100755
+diff --git a/user/copy.c b/user/copy.c
+new file mode 100644
+index 0000000..43166e0
+--- /dev/null
++++ b/user/copy.c
+@@ -0,0 +1,16 @@
++#include "kernel/types.h"
++#include "user/user.h"
++
++int
++main()
++{
++    char buf[64];
++    while (1) {
++        int n = read(0, buf, sizeof(buf));
++        if (n <= 0)
++            break;
++        write(1, buf, n);
++    }
++
++    exit(0);
++}
+\ No newline at end of file
+diff --git a/user/echo.c b/user/echo.c
+old mode 100644
+new mode 100755
+diff --git a/user/find.c b/user/find.c
+new file mode 100644
+index 0000000..cd95f39
+--- /dev/null
++++ b/user/find.c
+@@ -0,0 +1,63 @@
++#include "kernel/types.h"
++#include "kernel/stat.h"
++#include "user/user.h"
++#include "kernel/fs.h"
++
++void find(char *path, char *filename) {
++    char buf[512], *p;
++    int fd;
++    struct dirent de;
++    struct stat st;
++
++    if((fd = open(path, 0)) < 0){
++        fprintf(2, "find: cannot open %s\n", path);
++        return;
++    }
++
++    if(fstat(fd, &st) < 0){
++        fprintf(2, "find: cannot stat %s\n", path);
++        close(fd);
++        return;
++    }
++
++    switch(st.type){
++        case T_FILE:
++            if(strcmp(path, filename) == 0)
++                printf("%s\n", path);
++            break;
++
++        case T_DIR:
++            if(strlen(path) + 1 + DIRSIZ + 1 > sizeof buf){
++                printf("find: path too long\n");
++                break;
++            }
++            strcpy(buf, path);
++            p = buf+strlen(buf);
++            *p++ = '/';
++            while(read(fd, &de, sizeof(de)) == sizeof(de)){
++                if(de.inum == 0) continue;
++                memmove(p, de.name, DIRSIZ);
++                p[DIRSIZ] = 0;
++                if(stat(buf, &st) < 0){
++                    fprintf(2, "find: cannot stat %s\n", buf);
++                    continue;
++                }
++                if(strcmp(de.name, ".") == 0 || strcmp(de.name, "..") == 0)
++                    continue;
++                if(st.type == T_FILE && strcmp(de.name, filename) == 0)
++                    printf("%s/%s\n", path, de.name);
++                find(buf, filename);
++            }
++            break;
++    }
++    close(fd);
++}
++
++int main(int argc, char *argv[]) {
++    if(argc != 3){
++        fprintf(2, "Usage: find <path> <filename>\n");
++        exit(1);
++    }
++    find(argv[1], argv[2]);
++    exit(0);
++}
+diff --git a/user/forktest.c b/user/forktest.c
+old mode 100644
+new mode 100755
+diff --git a/user/grep.c b/user/grep.c
+old mode 100644
+new mode 100755
+diff --git a/user/grind.c b/user/grind.c
+old mode 100644
+new mode 100755
+diff --git a/user/init.c b/user/init.c
+old mode 100644
+new mode 100755
+diff --git a/user/initcode.S b/user/initcode.S
+old mode 100644
+new mode 100755
+diff --git a/user/kill.c b/user/kill.c
+old mode 100644
+new mode 100755
+diff --git a/user/ln.c b/user/ln.c
+old mode 100644
+new mode 100755
+diff --git a/user/ls.c b/user/ls.c
+old mode 100644
+new mode 100755
+diff --git a/user/mkdir.c b/user/mkdir.c
+old mode 100644
+new mode 100755
+diff --git a/user/pingpong.c b/user/pingpong.c
+new file mode 100644
+index 0000000..df8761c
+--- /dev/null
++++ b/user/pingpong.c
+@@ -0,0 +1,25 @@
++#include <kernel/types.h>
++#include "user.h"
++
++int main(int argc, char *argv[]) {
++    // 创建一个管道
++    int p[2];
++    char text[10];
++    pipe(p);
++    int pid = fork();
++    if (pid == 0) {
++        // 子进程
++        read(p[0], text, 10); // 要是父进程还没写入会进入阻塞
++        printf("%d: received %s\n", getpid(), text);
++        write(p[1], "pong", 10);
++        exit(0);
++    } else {
++        // 父进程
++        write(p[1], "ping", 10);
++        wait(0); // 父进程阻塞，等待子进程读取和写入
++        read(p[0], text, 10);
++        printf("%d: received %s\n", getpid(), text);
++        exit(0);
++    }
++    return 0;
++}
+diff --git a/user/primes.c b/user/primes.c
+new file mode 100644
+index 0000000..bf55519
+--- /dev/null
++++ b/user/primes.c
+@@ -0,0 +1,60 @@
++#include "kernel/types.h"
++#include "user.h"
++
++#define MAX_LEN 36
++
++void solve(int pipe_read) {
++    int p[2];
++    pipe(p);
++    int r_size = 0, r_res = 0, first = 0;
++    r_size = read(pipe_read, &r_res, sizeof(int));
++    if (r_size > 0) {
++        first = r_res;
++        printf("prime %d\n", first);
++    } else {
++        exit(0);
++    }
++
++    int pid = fork();
++    if (pid == 0) {
++        close(p[1]);
++        solve(p[0]);
++    } else {
++        while (r_size > 0) {
++            if (r_res % first) {
++                write(p[1], &r_res, sizeof(int));
++            }
++            r_size = read(pipe_read, &r_res, sizeof(int));
++        }
++        close(pipe_read);
++        close(p[1]);
++    }
++}
++
++int main(int argc, char *argv[]) {
++    if (argc != 1) {
++        printf("primes: need not parameter\n");
++    }
++
++    int p[2];
++    pipe(p);
++    int pid = fork();
++    if (pid == 0) {
++        // 子进程，进入递归
++        close(p[1]);
++        solve(p[0]);
++    } else {
++        // 父进程，筛选，后传
++        close(p[0]);
++        printf("prime 2\n");
++        for (int i = 2; i < MAX_LEN; i++) {
++            if (i % 2) {
++                write(p[1], &i, sizeof(int));
++            }
++        }
++        close(p[1]);
++    }
++    wait(0);
++    exit(0);
++    return 0;
++}
+\ No newline at end of file
+diff --git a/user/printf.c b/user/printf.c
+old mode 100644
+new mode 100755
+diff --git a/user/rm.c b/user/rm.c
+old mode 100644
+new mode 100755
+diff --git a/user/sh.c b/user/sh.c
+old mode 100644
+new mode 100755
+diff --git a/user/sleep.c b/user/sleep.c
+new file mode 100644
+index 0000000..1012cfa
+--- /dev/null
++++ b/user/sleep.c
+@@ -0,0 +1,11 @@
++#include "kernel/types.h"
++#include "user/user.h"
++
++int main(int argc, char *argv[]) {
++    if (argc != 2) {
++        fprintf(2, "usage: sleep <time>\n");
++        exit(1);
++    }
++    sleep(atoi(argv[1]));
++    exit(0);
++}
+\ No newline at end of file
+diff --git a/user/stressfs.c b/user/stressfs.c
+old mode 100644
+new mode 100755
+diff --git a/user/ulib.c b/user/ulib.c
+old mode 100644
+new mode 100755
+diff --git a/user/umalloc.c b/user/umalloc.c
+old mode 100644
+new mode 100755
+diff --git a/user/user.h b/user/user.h
+old mode 100644
+new mode 100755
+diff --git a/user/usertests.c b/user/usertests.c
+old mode 100644
+new mode 100755
+diff --git a/user/wc.c b/user/wc.c
+old mode 100644
+new mode 100755
+diff --git a/user/xargs.c b/user/xargs.c
+new file mode 100644
+index 0000000..a36ec8b
+--- /dev/null
++++ b/user/xargs.c
+@@ -0,0 +1,61 @@
++#include "kernel/param.h"
++#include "kernel/types.h"
++#include "user/user.h"
++
++#define buf_size 512
++
++int main(int argc, char *argv[]) {
++  char buf[buf_size + 1] = {0};
++  uint occupy = 0;
++  char *xargv[MAXARG] = {0};
++  int stdin_end = 0;
++
++  for (int i = 1; i < argc; i++) {
++    xargv[i - 1] = argv[i];
++  }
++
++  while (!(stdin_end && occupy == 0)) {
++    // try read from left-hand program
++    if (!stdin_end) {
++      int remain_size = buf_size - occupy;
++      int read_bytes = read(0, buf + occupy, remain_size);
++      if (read_bytes < 0) {
++        fprintf(2, "xargs: read returns -1 error\n");
++      }
++      if (read_bytes == 0) {
++        close(0);
++        stdin_end = 1;
++      }
++      occupy += read_bytes;
++    }
++    // process lines read
++    char *line_end = strchr(buf, '\n');
++    while (line_end) {
++      char xbuf[buf_size + 1] = {0};
++      memcpy(xbuf, buf, line_end - buf);
++      xargv[argc - 1] = xbuf;
++      int ret = fork();
++      if (ret == 0) {
++        // i am child
++        if (!stdin_end) {
++          close(0);
++        }
++        if (exec(argv[1], xargv) < 0) {
++          fprintf(2, "xargs: exec fails with -1\n");
++          exit(1);
++        }
++      } else {
++        // trim out line already processed
++        memmove(buf, line_end + 1, occupy - (line_end - buf) - 1);
++        occupy -= line_end - buf + 1;
++        memset(buf + occupy, 0, buf_size - occupy);
++        // harvest zombie
++        int pid;
++        wait(&pid);
++
++        line_end = strchr(buf, '\n');
++      }
++    }
++  }
++  exit(0);
++}
+diff --git a/user/xargstest.sh b/user/xargstest.sh
+old mode 100644
+new mode 100755
+diff --git a/user/zombie.c b/user/zombie.c
+old mode 100644
+new mode 100755
